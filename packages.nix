@@ -1,3 +1,5 @@
+# packages.nix
+
 [
 # basically everything
 gitFull
