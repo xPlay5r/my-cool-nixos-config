@@ -5,6 +5,8 @@
 # База
 gitFull
 wget
+gcc
+g++
 
 # cli/tui утилиты
 translate-shell
