@@ -1,15 +1,17 @@
 # packages.nix
 
-[
-# basically everything
+{ pkgs }: with pkgs; [
+
+# База
 gitFull
 wget
 
-# cli/tui utilities
+# cli/tui утилиты
 translate-shell
 fastfetch
 vim-full
 neovim
+
 ]
 
 # vim:ft=nix:
