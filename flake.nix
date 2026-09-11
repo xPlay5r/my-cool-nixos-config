@@ -13,7 +13,6 @@
       specialArgs = { inherit inputs; };
       modules = [
         ./configuration.nix
-        nix-index-database.nixosModules.default
       ];
     };
   };
