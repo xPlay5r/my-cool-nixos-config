@@ -1,3 +1,4 @@
+[
 # basically everything
 gitFull
 wget
@@ -7,5 +8,6 @@ translate-shell
 fastfetch
 vim-full
 neovim
+]
 
 # vim:ft=nix:
