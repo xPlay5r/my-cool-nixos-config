@@ -16,6 +16,8 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  boot.plymouth.enable = true;
+
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -80,6 +82,17 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
+  services.keyd.enable = true;
+  services.keyd.keyboards.default = {
+    ids = [ "*" ];
+    settings = {
+      main = {
+        capslock = "overload(control, caps)";
+      };
+    };
+  };
+
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users."vlad" = {
     isNormalUser = true;
@@ -123,5 +136,6 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "26.05"; # Did you read the comment?
-
 }
+
+# vim:sw=2:

@@ -13,6 +13,9 @@ fastfetch
 vim-full
 neovim tree-sitter
 
+# для wm/greeters
+gnome gnome-tweaks
+
 ]
 
 # vim:ft=nix:
