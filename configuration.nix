@@ -10,6 +10,8 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+
+      inputs.nix-index-database.nixosModules.nix-index
     ];
 
   # Bootloader.
@@ -106,7 +108,10 @@
   # Install firefox.
   programs.firefox.enable = true;
 
+  # https://github.com/nix-community/nix-index
   programs.command-not-found.enable = true;
+  # /nix/var/nix/profiles/per-user/root/channels/nixos/programs.sqlite
+  programs.command-not-found.dbPath = "/nix/var/nix/profiles/per-user/root/channels/nixos/programs.sqlite";
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
