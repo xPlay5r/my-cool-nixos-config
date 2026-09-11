@@ -94,7 +94,6 @@
     };
   };
 
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users."vlad" = {
     isNormalUser = true;
@@ -109,9 +108,11 @@
   programs.firefox.enable = true;
 
   # https://github.com/nix-community/nix-index
-  programs.command-not-found.enable = true;
+  programs.command-not-found.enable = false;
   # /nix/var/nix/profiles/per-user/root/channels/nixos/programs.sqlite
-  programs.command-not-found.dbPath = "/nix/var/nix/profiles/per-user/root/channels/nixos/programs.sqlite";
+  # programs.command-not-found.dbPath = "/nix/var/nix/profiles/per-user/root/channels/nixos/programs.sqlite";
+  programs.nix-index.enableZshIntegration = true;
+  programs.nix-index.enableBashIntegration = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
