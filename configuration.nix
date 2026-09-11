@@ -87,7 +87,7 @@
     ids = [ "*" ];
     settings = {
       main = {
-        capslock = "overload(control, caps)";
+        capslock = "overload(control, capslock)";
       };
     };
   };
