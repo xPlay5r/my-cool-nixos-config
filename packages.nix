@@ -10,7 +10,7 @@ wget
 translate-shell
 fastfetch
 vim-full
-neovim tree-sitter-cli
+neovim tree-sitter
 
 ]
 
