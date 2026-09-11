@@ -6,6 +6,7 @@
 gitFull
 wget
 gcc
+gnumake
 
 # cli/tui утилиты
 translate-shell

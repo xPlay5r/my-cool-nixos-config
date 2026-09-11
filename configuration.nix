@@ -113,6 +113,7 @@
   # programs.command-not-found.dbPath = "/nix/var/nix/profiles/per-user/root/channels/nixos/programs.sqlite";
   programs.nix-index.enableZshIntegration = true;
   programs.nix-index.enableBashIntegration = true;
+  programs.nix-index-database.comma.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
