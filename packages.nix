@@ -16,6 +16,6 @@ neovim tree-sitter
 # для wm/greeters
 gnome-tweaks
 
-];
+]
 
 # vim:ft=nix:
