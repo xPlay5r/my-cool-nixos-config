@@ -15,8 +15,13 @@ vim-full
 neovim tree-sitter
 
 # для wm/greeters
+# для gnome
 gnome-tweaks
-
+# для niri
+waybar awww swaynotificationcenter networkmanagerapplet
+blueman wofi swaylock playerctl
+nemo qutebrowser
+kitty
 ]
 
-# vim:ft=nix:
+# vim:sw=2:ft=nix:
