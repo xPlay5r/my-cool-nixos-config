@@ -19,7 +19,7 @@ neovim tree-sitter
 gnome-tweaks
 # для niri
 waybar awww swaynotificationcenter networkmanagerapplet
-blueman wofi swaylock playerctl
+blueman wofi swaylock playerctl anyrun
 nemo qutebrowser
 kitty
 ]

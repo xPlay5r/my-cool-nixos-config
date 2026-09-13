@@ -127,7 +127,7 @@
   environment.systemPackages = import ./packages.nix { inherit pkgs; };
 
   # https://www.nerdfonts.com/
-  fonts.packages = with pkgs; [ nerdfonts ];
+  fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
