@@ -1,18 +1,20 @@
-# vim:shiftwidth=2:
 # home.nix
-{ lib, pkgs, ... }:
-{
-  home = {
-    packages = with pkgs; [
-      hello
-    ];
 
-    # This needs to actually be set to your username
-    username = "vlad";
-    homeDirectory = "/home/vlad/";
+# https://www.chrisportela.com/posts/home-manager-flake/
 
-    # You do not need to change this if you're reading this in the future
-    # Don't ever change this after the first build. Don't ask questions.
-    stateVersion = "23.11";
+{ pkgs, lib, ... }: {
+  home.username = "vlad";
+  home.homeDirectory = lib.mkForce "/home/vlad/";    
+
+  home.packages = with pkgs; [ cowsay ];
+
+  home.file.test = {
+    source = ./README.md;
+    target = "test.md";
   };
+
+  home.stateVersion = "24.11"; # Comment out for error with "latest" version
+  programs.home-manager.enable = true;
 }
+
+# vim:shiftwidth=2:
