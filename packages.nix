@@ -9,11 +9,8 @@ gcc
 gnumake
 
 # cli/tui утилиты
-python3
-translate-shell
 fastfetch
 vim-full
-neovim tree-sitter
 
 # для wm/greeters
 # для gnome
