@@ -9,6 +9,7 @@ gcc
 gnumake
 
 # cli/tui утилиты
+python3
 translate-shell
 fastfetch
 vim-full
