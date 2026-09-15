@@ -16,7 +16,6 @@ vim-full
 # для gnome
 gnome-tweaks
 # для niri
-wofi swaylock playerctl brightnessctl anyrun
 nemo qutebrowser
 kitty
 ]

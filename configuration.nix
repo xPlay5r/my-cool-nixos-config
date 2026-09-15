@@ -61,6 +61,7 @@
   # Включить niri
   services.displayManager.ly.enable = true;
   programs.niri.enable = true;
+  security.pam.services.swaylock = {};
 
   # Configure keymap in X11
   services.xserver.xkb = {
