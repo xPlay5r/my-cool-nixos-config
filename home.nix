@@ -24,7 +24,12 @@ translate-shell
 neovim tree-sitter
 
 # для wm
+gnome-tweaks
 wl-clipboard brightnessctl
+
+# gui
+nemo qutebrowser
+kitty
   ];
 
   home.stateVersion = "24.11"; # Comment out for error with "latest" version

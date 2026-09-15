@@ -12,12 +12,6 @@ gnumake
 fastfetch
 vim-full
 
-# для wm/greeters
-# для gnome
-gnome-tweaks
-# для niri
-nemo qutebrowser
-kitty
 ]
 
 # vim:sw=2:ft=nix:
