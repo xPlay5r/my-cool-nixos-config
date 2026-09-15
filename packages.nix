@@ -16,8 +16,7 @@ vim-full
 # для gnome
 gnome-tweaks
 # для niri
-waybar awww swaynotificationcenter networkmanagerapplet
-blueman wofi swaylock playerctl brightnessctl anyrun
+wofi swaylock playerctl brightnessctl anyrun
 nemo qutebrowser
 kitty
 ]
