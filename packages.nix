@@ -7,6 +7,7 @@ gitFull
 wget
 gcc
 gnumake
+python3
 
 # cli/tui утилиты
 fastfetch
