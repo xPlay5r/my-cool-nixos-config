@@ -57,6 +57,7 @@ python3
 translate-shell
 neovim tree-sitter
 ddgr
+lsd bat
 
 # для wm
 gnome-tweaks
