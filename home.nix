@@ -1,6 +1,7 @@
 # home.nix
 
 # https://www.chrisportela.com/posts/home-manager-flake/
+# home-configuration.nix(5)
 
 { pkgs, lib, ... }: {
   home.username = "vlad";
@@ -14,6 +15,19 @@
   services.playerctld.enable = true;
   services.awww.enable = true;
   services.swaync.enable = true;
+
+  gtk.enable = true;
+  gtk.colorScheme = "dark";
+
+  home.pointerCursor.enable = true;
+  home.pointerCursor.gtk.enable = true;
+  home.pointerCursor.x11.enable = true;
+  home.pointerCursor.package = pkgs.bibata-cursors;
+  home.pointerCursor.name = "Bibata-Modern-Classic";
+  home.pointerCursor.size = 32;
+  gtk.cursorTheme.package = pkgs.bibata-cursors;
+  gtk.cursorTheme.name = "Bibata-Modern-Classic";
+  gtk.cursorTheme.size = 32;
 
   programs.anyrun.enable = true;
   programs.anyrun.config.plugins = [
@@ -41,6 +55,7 @@
 python3
 translate-shell
 neovim tree-sitter
+ddgr
 
 # для wm
 gnome-tweaks
@@ -50,6 +65,7 @@ anyrun
 # gui
 nemo
 kitty
+gimp inkscape
   ];
 
   home.stateVersion = "24.11"; # Comment out for error with "latest" version
