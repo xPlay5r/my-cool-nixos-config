@@ -2,6 +2,7 @@
 
 # https://www.chrisportela.com/posts/home-manager-flake/
 # home-configuration.nix(5)
+# https://learngitbranching.js.org/
 
 { pkgs, lib, ... }: {
   home.username = "vlad";
