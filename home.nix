@@ -58,6 +58,7 @@ translate-shell
 neovim tree-sitter
 ddgr
 lsd bat
+jq
 
 # для wm
 gnome-tweaks
@@ -65,9 +66,11 @@ wl-clipboard brightnessctl
 anyrun
 
 # gui
-nemo
+gimp
+inkscape
 kitty
-gimp inkscape
+nemo
+pavucontrol
   ];
 
   home.stateVersion = "24.11"; # Comment out for error with "latest" version
