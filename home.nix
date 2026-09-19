@@ -35,6 +35,8 @@
   gtk.theme.package = pkgs.orchis-theme;
   gtk.theme.name = "Orchis-Dark";
 
+  # dconf-editor
+  # dconf watch /
   dconf.settings."org/gnome/desktop/interface" = {
     cursor-theme = "Bibata-Modern-Classic";
     cursor-size = 32;
