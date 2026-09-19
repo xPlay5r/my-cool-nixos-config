@@ -30,6 +30,26 @@
   gtk.cursorTheme.name = "Bibata-Modern-Classic";
   gtk.cursorTheme.size = 32;
 
+  gtk.iconTheme.package = pkgs.papirus-icon-theme;
+  gtk.iconTheme.name = "Papirus-Dark";
+  gtk.theme.package = pkgs.orchis-theme;
+  gtk.theme.name = "Orchis-Dark";
+
+  dconf.settings."org/gnome/desktop/interface" = {
+    cursor-theme = "Bibata-Modern-Classic";
+    cursor-size = 32;
+    color-scheme = "prefer-dark";
+    accent-color = "blue";
+
+    clock-format = "24h";
+    clock-show-seconds = true;
+    enable-hot-corners = false;
+  };
+
+  dconf.settings."org/nemo/preferences" = {
+    show-hidden-files = true;
+  };
+
   programs.anyrun.enable = true;
   programs.anyrun.config.plugins = [
     "${pkgs.anyrun}/lib/libapplications.so"
@@ -52,6 +72,21 @@
   };
 
   home.packages = with pkgs; [
+# gui
+brave
+gimp
+inkscape
+kitty
+nemo nemo-fileroller nemo-preview
+pavucontrol
+nwg-look # для проверки темы
+dconf-editor
+
+# для wm
+gnome-tweaks
+wl-clipboard brightnessctl
+anyrun
+
 # cli/tui утилиты
 python3
 translate-shell
@@ -59,18 +94,6 @@ neovim tree-sitter
 ddgr
 lsd bat
 jq
-
-# для wm
-gnome-tweaks
-wl-clipboard brightnessctl
-anyrun
-
-# gui
-gimp
-inkscape
-kitty
-nemo
-pavucontrol
   ];
 
   home.stateVersion = "24.11"; # Comment out for error with "latest" version
