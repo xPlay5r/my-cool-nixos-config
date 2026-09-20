@@ -7,6 +7,7 @@ gitFull
 wget
 gcc
 gnumake
+unzip
 python3
 
 # cli/tui утилиты

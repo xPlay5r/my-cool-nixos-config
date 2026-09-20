@@ -1,5 +1,7 @@
 # flake.nix
 
+# https://github.com/wochap/nix-config
+
 {
   description = "A very basic flake";
 
