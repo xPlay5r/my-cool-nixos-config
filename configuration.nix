@@ -5,160 +5,160 @@
 { config, pkgs, inputs, ... }:
 
 {
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  nix.settings.trusted-users = [ "@wheel" ];
+	nix.settings.experimental-features = [ "nix-command" "flakes" ];
+	nix.settings.trusted-users = [ "@wheel" ];
 
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+	imports =
+		[ # Include the results of the hardware scan.
+			./hardware-configuration.nix
 
-      inputs.nix-index-database.nixosModules.nix-index
-    ];
+			inputs.nix-index-database.nixosModules.nix-index
+		];
 
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+	# Bootloader.
+	boot.loader.systemd-boot.enable = true;
+	boot.loader.efi.canTouchEfiVariables = true;
 
-  boot.plymouth.enable = true;
+	boot.plymouth.enable = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+	networking.hostName = "nixos"; # Define your hostname.
+	# networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+	# Configure network proxy if necessary
+	# networking.proxy.default = "http://user:password@proxy:port/";
+	# networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-  # Enable networking
-  networking.networkmanager.enable = true;
+	# Enable networking
+	networking.networkmanager.enable = true;
 
-  services.blueman.enable = true;
+	services.blueman.enable = true;
 
-  # Set your time zone.
-  time.timeZone = "Asia/Yekaterinburg";
+	# Set your time zone.
+	time.timeZone = "Asia/Yekaterinburg";
 
-  # Select internationalisation properties.
-  i18n.defaultLocale = "ru_RU.UTF-8";
+	# Select internationalisation properties.
+	i18n.defaultLocale = "ru_RU.UTF-8";
 
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "ru_RU.UTF-8";
-    LC_IDENTIFICATION = "ru_RU.UTF-8";
-    LC_MEASUREMENT = "ru_RU.UTF-8";
-    LC_MONETARY = "ru_RU.UTF-8";
-    LC_NAME = "ru_RU.UTF-8";
-    LC_NUMERIC = "ru_RU.UTF-8";
-    LC_PAPER = "ru_RU.UTF-8";
-    LC_TELEPHONE = "ru_RU.UTF-8";
-    LC_TIME = "ru_RU.UTF-8";
-  };
+	i18n.extraLocaleSettings = {
+		LC_ADDRESS = "ru_RU.UTF-8";
+		LC_IDENTIFICATION = "ru_RU.UTF-8";
+		LC_MEASUREMENT = "ru_RU.UTF-8";
+		LC_MONETARY = "ru_RU.UTF-8";
+		LC_NAME = "ru_RU.UTF-8";
+		LC_NUMERIC = "ru_RU.UTF-8";
+		LC_PAPER = "ru_RU.UTF-8";
+		LC_TELEPHONE = "ru_RU.UTF-8";
+		LC_TIME = "ru_RU.UTF-8";
+	};
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
+	# Enable the X11 windowing system.
+	services.xserver.enable = true;
 
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = false;
-  services.xserver.desktopManager.gnome.enable = true;
+	# Enable the GNOME Desktop Environment.
+	services.xserver.displayManager.gdm.enable = false;
+	services.xserver.desktopManager.gnome.enable = true;
 
-  # Включить niri
-  services.displayManager.ly.enable = true;
-  programs.niri.enable = true;
-  security.pam.services.swaylock = {};
+	# Включить niri
+	services.displayManager.ly.enable = true;
+	programs.niri.enable = true;
+	security.pam.services.swaylock = {};
 
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "ru,us";
-    variant = "";
-    options = "grp:caps_toggle";
-  };
+	# Configure keymap in X11
+	services.xserver.xkb = {
+		layout = "ru,us";
+		variant = "";
+		options = "grp:caps_toggle";
+	};
 
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
+	# Enable CUPS to print documents.
+	services.printing.enable = true;
 
-  # Enable sound with pipewire.
-  services.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    jack.enable = true;
-  };
-  # services.pulseaudio = {
-  #   enable = true;
-  #   extraModules = [ pkgs.pulseaudio-modules-bt ];
-  # };
-  hardware = {
-    bluetooth = { enable = true; };
-  };
+	# Enable sound with pipewire.
+	services.pulseaudio.enable = false;
+	security.rtkit.enable = true;
+	services.pipewire = {
+		enable = true;
+		alsa.enable = true;
+		alsa.support32Bit = true;
+		pulse.enable = true;
+		# If you want to use JACK applications, uncomment this
+		jack.enable = true;
+	};
+	# services.pulseaudio = {
+	#   enable = true;
+	#   extraModules = [ pkgs.pulseaudio-modules-bt ];
+	# };
+	hardware = {
+		bluetooth = { enable = true; };
+	};
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
+	# Enable touchpad support (enabled default in most desktopManager).
+	# services.xserver.libinput.enable = true;
 
-  services.keyd.enable = true;
-  services.keyd.keyboards.default = {
-    ids = [ "*" ];
-    settings = {
-      main = {
-        capslock = "overload(control, capslock)";
-      };
-    };
-  };
+	services.keyd.enable = true;
+	services.keyd.keyboards.default = {
+		ids = [ "*" ];
+		settings = {
+			main = {
+				capslock = "overload(control, capslock)";
+			};
+		};
+	};
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users."vlad" = {
-    isNormalUser = true;
-    description = "Владислав";
-    extraGroups = [ "networkmanager" "wheel" "input" ];
-    packages = with pkgs; [
-    #  thunderbird
-    ];
-  };
+	# Define a user account. Don't forget to set a password with ‘passwd’.
+	users.users."vlad" = {
+		isNormalUser = true;
+		description = "Владислав";
+		extraGroups = [ "networkmanager" "wheel" "input" ];
+		packages = with pkgs; [
+		#  thunderbird
+		];
+	};
 
-  # Install firefox.
-  programs.firefox.enable = true;
+	# Install firefox.
+	programs.firefox.enable = true;
 
-  # https://github.com/nix-community/nix-index
-  programs.command-not-found.enable = false;
-  # /nix/var/nix/profiles/per-user/root/channels/nixos/programs.sqlite
-  # programs.command-not-found.dbPath = "/nix/var/nix/profiles/per-user/root/channels/nixos/programs.sqlite";
-  programs.nix-index.enableZshIntegration = true;
-  programs.nix-index.enableBashIntegration = true;
-  programs.nix-index-database.comma.enable = true;
+	# https://github.com/nix-community/nix-index
+	programs.command-not-found.enable = false;
+	# /nix/var/nix/profiles/per-user/root/channels/nixos/programs.sqlite
+	# programs.command-not-found.dbPath = "/nix/var/nix/profiles/per-user/root/channels/nixos/programs.sqlite";
+	programs.nix-index.enableZshIntegration = true;
+	programs.nix-index.enableBashIntegration = true;
+	programs.nix-index-database.comma.enable = true;
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = import ./packages.nix { inherit pkgs; };
+	# List packages installed in system profile. To search, run:
+	# $ nix search wget
+	environment.systemPackages = import ./packages.nix { inherit pkgs; };
 
-  # https://www.nerdfonts.com/
-  fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
+	# https://www.nerdfonts.com/
+	fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
+	# Some programs need SUID wrappers, can be configured further or are
+	# started in user sessions.
+	# programs.mtr.enable = true;
+	# programs.gnupg.agent = {
+	#   enable = true;
+	#   enableSSHSupport = true;
+	# };
 
-  # List services that you want to enable:
+	# List services that you want to enable:
 
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+	# Enable the OpenSSH daemon.
+	# services.openssh.enable = true;
 
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+	# Open ports in the firewall.
+	# networking.firewall.allowedTCPPorts = [ ... ];
+	# networking.firewall.allowedUDPPorts = [ ... ];
+	# Or disable the firewall altogether.
+	# networking.firewall.enable = false;
 
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "26.05"; # Did you read the comment?
+	# This value determines the NixOS release from which the default
+	# settings for stateful data, like file locations and database versions
+	# on your system were taken. It‘s perfectly fine and recommended to leave
+	# this value at the release version of the first install of this system.
+	# Before changing this value read the documentation for this option
+	# (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
+	system.stateVersion = "26.05"; # Did you read the comment?
 }
 
-# vim:sw=2:
+# vim:ts=2:
