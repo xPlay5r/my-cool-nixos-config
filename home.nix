@@ -34,6 +34,8 @@
 	gtk.iconTheme.name = "Papirus-Dark";
 	gtk.theme.package = pkgs.orchis-theme;
 	gtk.theme.name = "Orchis-Dark";
+	gtk.gtk4.theme = config.gtk.theme;
+	gtk.gtk4.name = "Orchis-Dark";
 
 	# dconf-editor
 	# dconf watch /
@@ -80,6 +82,7 @@ gimp
 inkscape
 kitty
 nemo nemo-fileroller nemo-preview
+libreoffice
 pavucontrol
 nwg-look # для проверки темы
 dconf-editor
