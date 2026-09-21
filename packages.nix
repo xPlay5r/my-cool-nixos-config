@@ -14,6 +14,8 @@ python3
 fastfetch
 vim-full
 
+# wm
+xwayland-satellite
 ]
 
 # vim:sw=2:ft=nix:

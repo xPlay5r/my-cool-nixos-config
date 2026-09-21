@@ -32,10 +32,10 @@
 
 	gtk.iconTheme.package = pkgs.papirus-icon-theme;
 	gtk.iconTheme.name = "Papirus-Dark";
-	gtk.theme.package = pkgs.orchis-theme;
-	gtk.theme.name = "Orchis-Dark";
-	gtk.gtk4.theme = config.gtk.theme;
-	gtk.gtk4.name = "Orchis-Dark";
+	gtk.theme.package = pkgs.colloid-gtk-theme;
+	gtk.theme.name = "Colloid-Dark";
+	gtk.gtk4.theme.package = pkgs.colloid-gtk-theme;
+	gtk.gtk4.theme.name = "Colloid-Dark";
 
 	# dconf-editor
 	# dconf watch /
@@ -77,6 +77,7 @@
 
 	home.packages = with pkgs; [
 # gui
+hyperspeedcube
 brave
 gimp
 inkscape
