@@ -32,10 +32,10 @@
 
 	gtk.iconTheme.package = pkgs.papirus-icon-theme;
 	gtk.iconTheme.name = "Papirus-Dark";
-	gtk.theme.package = pkgs.colloid-gtk-theme;
-	gtk.theme.name = "Colloid-Dark";
-	gtk.gtk4.theme.package = pkgs.colloid-gtk-theme;
-	gtk.gtk4.theme.name = "Colloid-Dark";
+	gtk.theme.package = pkgs.catppuccin-gtk;
+	gtk.theme.name = "catppuccin-frappe-blue-standard";
+	gtk.gtk4.theme.package = pkgs.catppuccin-gtk;
+	gtk.gtk4.theme.name = "catppuccin-frappe-blue-standard";
 
 	# dconf-editor
 	# dconf watch /
@@ -98,7 +98,7 @@ python3
 translate-shell
 neovim tree-sitter
 ddgr
-lsd bat
+lsd bat htop btop
 jq
 	];
 

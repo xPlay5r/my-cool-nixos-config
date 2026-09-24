@@ -7,7 +7,10 @@ gitFull
 wget
 gcc
 gnumake
+man-pages
+man-pages-posix
 unzip
+keyd
 python3
 
 # cli/tui утилиты

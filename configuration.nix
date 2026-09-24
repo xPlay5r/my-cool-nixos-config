@@ -21,6 +21,15 @@
 
 	boot.plymouth.enable = true;
 
+	# man
+	documentation.enable = true;
+	documentation.dev.enable = true;
+	documentation.doc.enable = true;
+	documentation.info.enable = true;
+	documentation.man.enable = true;
+	documentation.man.cache.enable = true;
+	documentation.nixos.includeAllModules = true;
+
 	networking.hostName = "nixos"; # Define your hostname.
 	# networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -96,14 +105,9 @@
 	# services.xserver.libinput.enable = true;
 
 	services.keyd.enable = true;
-	services.keyd.keyboards.default = {
-		ids = [ "*" ];
-		settings = {
-			main = {
-				capslock = "control";
-				control = "capslock";
-			};
-		};
+	services.keyd.keyboards.default.settings.main = {
+		capslock = "overload(control, esc)";
+		rightshift = "overload(shift, capslock)";
 	};
 
 	# Define a user account. Don't forget to set a password with ‘passwd’.
