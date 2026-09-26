@@ -75,8 +75,16 @@
 		colors.tabs.bar.bg = "#111";
 	};
 
+	nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+		"steam" "steam-unwrapped"
+	];
+
 	home.packages = with pkgs; [
 # gui
+steam
+# mindustry
+telegram-desktop
+prismlauncher
 hyperspeedcube
 brave
 gimp

@@ -72,6 +72,9 @@
 	programs.niri.enable = true;
 	security.pam.services.swaylock = {};
 
+	hardware.graphics.enable = true;
+	hardware.graphics.enable32Bit = true;
+
 	# Configure keymap in X11
 	services.xserver.xkb = {
 		layout = "ru,us";
@@ -109,6 +112,9 @@
 		capslock = "overload(control, esc)";
 		rightshift = "overload(shift, capslock)";
 	};
+
+	programs.throne.enable = true;
+	programs.throne.tunMode.enable = true;
 
 	# Define a user account. Don't forget to set a password with ‘passwd’.
 	users.users."vlad" = {
