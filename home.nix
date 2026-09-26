@@ -81,15 +81,16 @@
 
 	home.packages = with pkgs; [
 # gui
+kitty
 steam
 # mindustry
 telegram-desktop
 prismlauncher
 hyperspeedcube
+obs-studio
 brave
 gimp
 inkscape
-kitty
 nemo nemo-fileroller nemo-preview
 libreoffice
 pavucontrol
