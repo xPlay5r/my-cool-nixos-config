@@ -68,7 +68,7 @@
 	];
 	programs.anyrun.extraConfigFiles."applications.run".text = ''
 		Config(
-			prefix: "!",
+			prefix: "",
 			hide_description: false,
 			// The terminal used for running terminal based desktop entries, if left as `None` a static list of terminals is used
 			// to determine what terminal to use.
@@ -152,6 +152,7 @@ neovim tree-sitter
 ddgr
 lsd bat htop btop
 jq
+groff
 	];
 
 	home.stateVersion = "24.11"; # Comment out for error with "latest" version
