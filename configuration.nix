@@ -2,7 +2,8 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, inputs, ... }:
+# https://discourse.nixos.org/t/how-do-specialargs-work/50615/4
+{ pkgs, inputs, lib, ... }:
 
 {
 	nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -64,8 +65,8 @@
 	services.xserver.enable = true;
 
 	# Enable the GNOME Desktop Environment.
-	services.xserver.displayManager.gdm.enable = false;
-	services.xserver.desktopManager.gnome.enable = true;
+	services.displayManager.gdm.enable = false;
+	services.desktopManager.gnome.enable = true;
 
 	# Включить niri
 	services.displayManager.ly.enable = true;
@@ -115,6 +116,7 @@
 
 	programs.throne.enable = true;
 	programs.throne.tunMode.enable = true;
+	programs.amnezia-vpn.enable = true;
 
 	# Define a user account. Don't forget to set a password with ‘passwd’.
 	users.users."vlad" = {
@@ -137,12 +139,27 @@
 	programs.nix-index.enableBashIntegration = true;
 	programs.nix-index-database.comma.enable = true;
 
+	nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+		"vista-fonts" "steam" "steam-unwrapped" "discord" "discord-unwrapped"
+	];
+	# nixpkgs.overlays = [
+	# 	(final: prev: {
+	# 		amnezia-vpn = prev.amnezia-vpn.overrideAttrs (oldAttrs: {
+	# 			preConfigure =
+	# 				(oldAttrs.preConfigure or "")
+	# 				+ ''
+	# 					export PROD_AGW_PUBLIC_KEY="$(printf '%s' "$PROD_AGW_PUBLIC_KEY" | sed 's/[\]n$//')"
+	# 					export DEV_AGW_PUBLIC_KEY="$(printf '%s' "$DEV_AGW_PUBLIC_KEY" | sed 's/[\]n$//')"
+	# 				'';
+	# 			});
+	# 	})
+	# ];
 	# List packages installed in system profile. To search, run:
 	# $ nix search wget
 	environment.systemPackages = import ./packages.nix { inherit pkgs; };
 
 	# https://www.nerdfonts.com/
-	fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
+	fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono vista-fonts ];
 
 	# Some programs need SUID wrappers, can be configured further or are
 	# started in user sessions.

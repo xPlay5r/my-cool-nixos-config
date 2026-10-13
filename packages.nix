@@ -5,6 +5,7 @@
 # База
 gitFull
 wget
+nftables
 gcc
 gnumake
 man-pages
@@ -16,6 +17,7 @@ python3
 # cli/tui утилиты
 fastfetch
 vim-full
+nasm
 
 # wm
 xwayland-satellite

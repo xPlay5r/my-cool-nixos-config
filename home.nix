@@ -117,23 +117,22 @@
 		colors.tabs.bar.bg = "#111";
 	};
 
-	nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-		"steam" "steam-unwrapped"
-	];
-
 	home.packages = with pkgs; [
 # gui
 kitty
 steam
 # mindustry
 telegram-desktop
-bristol
+discord
+zathura
+# bristol
 prismlauncher
 hyperspeedcube
 obs-studio
 brave
 gimp
 inkscape
+blender
 nemo nemo-fileroller nemo-preview
 libreoffice
 pavucontrol
@@ -144,6 +143,7 @@ dconf-editor
 gnome-tweaks
 wl-clipboard brightnessctl
 anyrun playerctl
+wl-gammactl wooz
 
 # cli/tui утилиты
 python3
@@ -153,6 +153,9 @@ ddgr
 lsd bat htop btop
 jq
 groff
+
+# надо
+# amnezia-vpn
 	];
 
 	home.stateVersion = "24.11"; # Comment out for error with "latest" version
