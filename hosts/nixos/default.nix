@@ -3,17 +3,16 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 # https://discourse.nixos.org/t/how-do-specialargs-work/50615/4
-{ pkgs, inputs, lib, ... }:
+{ pkgs, lib, ... }:
 
 {
 	nix.settings.experimental-features = [ "nix-command" "flakes" ];
 	nix.settings.trusted-users = [ "@wheel" ];
 
 	imports =
-		[ # Include the results of the hardware scan.
+		[
+			# Include the results of the hardware scan.
 			./hardware-configuration.nix
-
-			inputs.nix-index-database.nixosModules.nix-index
 		];
 
 	# Bootloader.
@@ -21,15 +20,6 @@
 	boot.loader.efi.canTouchEfiVariables = true;
 
 	boot.plymouth.enable = true;
-
-	# man
-	documentation.enable = true;
-	documentation.dev.enable = true;
-	documentation.doc.enable = true;
-	documentation.info.enable = true;
-	documentation.man.enable = true;
-	documentation.man.cache.enable = true;
-	documentation.nixos.includeAllModules = true;
 
 	networking.hostName = "nixos"; # Define your hostname.
 	# networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -41,6 +31,7 @@
 	# Enable networking
 	networking.networkmanager.enable = true;
 
+	# bluetooth
 	services.blueman.enable = true;
 
 	# Set your time zone.
@@ -61,27 +52,15 @@
 		LC_TIME = "ru_RU.UTF-8";
 	};
 
-	# Enable the X11 windowing system.
-	services.xserver.enable = true;
-
-	# Enable the GNOME Desktop Environment.
-	services.displayManager.gdm.enable = false;
-	services.desktopManager.gnome.enable = true;
-
-	# Включить niri
-	services.displayManager.ly.enable = true;
-	programs.niri.enable = true;
-	security.pam.services.swaylock = {};
-
 	hardware.graphics.enable = true;
 	hardware.graphics.enable32Bit = true;
 
-	# Configure keymap in X11
-	services.xserver.xkb = {
-		layout = "ru,us";
-		variant = "";
-		options = "grp:caps_toggle";
-	};
+	# # Configure keymap in X11
+	# services.xserver.xkb = {
+	# 	layout = "ru,us";
+	# 	variant = "";
+	# 	options = "grp:caps_toggle";
+	# };
 
 	# Enable CUPS to print documents.
 	services.printing.enable = true;
@@ -108,40 +87,6 @@
 	# Enable touchpad support (enabled default in most desktopManager).
 	# services.xserver.libinput.enable = true;
 
-	services.keyd.enable = true;
-	services.keyd.keyboards.default.settings.main = {
-		capslock = "overload(control, esc)";
-		rightshift = "overload(shift, capslock)";
-	};
-
-	programs.throne.enable = true;
-	programs.throne.tunMode.enable = true;
-	programs.amnezia-vpn.enable = true;
-
-	# Define a user account. Don't forget to set a password with ‘passwd’.
-	users.users."vlad" = {
-		isNormalUser = true;
-		description = "Владислав";
-		extraGroups = [ "networkmanager" "wheel" "input" ];
-		packages = with pkgs; [
-		#  thunderbird
-		];
-	};
-
-	# Install firefox.
-	programs.firefox.enable = true;
-
-	# https://github.com/nix-community/nix-index
-	programs.command-not-found.enable = false;
-	# /nix/var/nix/profiles/per-user/root/channels/nixos/programs.sqlite
-	# programs.command-not-found.dbPath = "/nix/var/nix/profiles/per-user/root/channels/nixos/programs.sqlite";
-	programs.nix-index.enableZshIntegration = true;
-	programs.nix-index.enableBashIntegration = true;
-	programs.nix-index-database.comma.enable = true;
-
-	nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-		"vista-fonts" "steam" "steam-unwrapped" "discord" "discord-unwrapped"
-	];
 	# nixpkgs.overlays = [
 	# 	(final: prev: {
 	# 		amnezia-vpn = prev.amnezia-vpn.overrideAttrs (oldAttrs: {
@@ -156,7 +101,14 @@
 	# ];
 	# List packages installed in system profile. To search, run:
 	# $ nix search wget
-	environment.systemPackages = import ./packages.nix { inherit pkgs; };
+	environment.systemPackages = with pkgs; [
+		gitFull
+		wget
+		nftables
+		gcc
+		gnumake
+		vim-full
+	];
 
 	# https://www.nerdfonts.com/
 	fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono vista-fonts ];

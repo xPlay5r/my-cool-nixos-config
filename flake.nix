@@ -46,24 +46,22 @@
 			flake = {
 				nixosConfigurations.nixos = let
 					user = "vlad";
+					specialArgs = { username = user; };
 				in nixpkgs.lib.nixosSystem {
 					specialArgs = { inherit inputs; };
 					modules = [
-						./configuration.nix
-						./garbage_collect.nix
+						./hosts/nixos
+						./users/${user}/nixos.nix
 
 						home-manager.nixosModules.home-manager
 						{
 							home-manager.useGlobalPkgs = true;
 							home-manager.useUserPackages = true;
-							# https://nix.dev/manual/nix/2.23/language/operators
-							home-manager.extraSpecialArgs = inputs;
-							home-manager.users.${user}.imports = [ ./home.nix ];
+
+							home-manager.extraSpecialArgs = inputs // specialArgs;
+							home-manager.users.${user} = import ./users/${user}/home.nix;
 						}
 					];
-				};
-				homeConfigurations.vlad = home-manager.lib.homeManagerConfiguration {
-					modules = [ ./home.nix ];
 				};
 			};
 		};
