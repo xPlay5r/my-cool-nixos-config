@@ -22,7 +22,8 @@
 		enable = true;
 		package = pkgs.gitFull;
 		settings = {
-			user.name = "Barabulka228";
+			user.name = "xPlay5r";
+			# credential.helper = "storage";
 		};
 	};
 
