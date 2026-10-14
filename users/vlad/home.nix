@@ -13,6 +13,7 @@
 	imports = [
 		../../modules/home/fastfetch.nix
 		../../modules/home/niri-wm-related
+		../../modules/home/wine.nix
 	];
 
 	home.username = "vlad";
