@@ -3,7 +3,7 @@
 
 1. flake.nix
 
-Начало всей конфигурации. outputs обернут в lib.mkFlake, этот фреймворк подставляет целевую систему в нескольких местах. Все привычные опции outputs теперь лежат внутри flake = { ... } внутри lib.mkFlake.
+Начало всей конфигурации. outputs обернут в flake-parts.lib.mkFlake, этот фреймворк подставляет целевую систему в нескольких местах. Все привычные опции outputs теперь лежат внутри flake = { ... } внутри flake-parts.lib.mkFlake.
 
 2. flake.nix -- nixosConfigurations.vlad
 
