@@ -14,6 +14,7 @@
 		../../modules/home/fastfetch.nix
 		../../modules/home/niri-wm-related
 		../../modules/home/wine.nix
+		../../modules/home/nvim
 	];
 
 	home.username = "vlad";
@@ -28,7 +29,7 @@
 		};
 	};
 
-	home.stateVersion = "24.11"; # Comment out for error with "latest" version
+	home.stateVersion = "26.05"; # Comment out for error with "latest" version
 	programs.home-manager.enable = true;
 
 	# Я не смог придумать хороое разделение в новый файл для списка программ
@@ -64,7 +65,6 @@ wl-gammactl wooz
 # cli/tui утилиты
 python3
 translate-shell
-neovim tree-sitter
 ddgr
 lsd bat htop btop
 jq
