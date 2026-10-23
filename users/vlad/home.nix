@@ -50,7 +50,6 @@ brave
 gimp
 inkscape
 blender
-nemo nemo-fileroller nemo-preview
 libreoffice
 pavucontrol
 nwg-look # для проверки темы

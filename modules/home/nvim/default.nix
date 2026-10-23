@@ -6,6 +6,17 @@
 	programs.neovim = {
 		enable = true;
 		defaultEditor = true;
+		coc.enable = true;
+		# https://cocnvim.com/docs/language-servers
+		coc.settings = {
+			# languageserver = {
+			# 	bash = {
+			# 		command = bash-language-server;
+			# 		args = [ start ];
+			# 		filetypes = [ sh ];
+			# 	};
+			# };
+		};
 		withNodeJs = true;
 		# withPython3 = true;
 		# withRuby = true;
@@ -56,7 +67,7 @@
 			type = "lua";
 			config = '''';
 		}
-		mini-icons
+		nvim-web-devicons
 		{
 			plugin = pkgs.vimPlugins.tokyonight-nvim;
 			type = "lua";
@@ -65,6 +76,8 @@
 				local is_tty = vim.fn.expand '$TERM' == "linux"
 
 				if not is_tty then
+					vim.api.nvim_set_hl(0, "StatusLine", { bg="NONE" })
+					vim.api.nvim_set_hl(0, "StatusLineNC", { bg="NONE" })
 					require("tokyonight").setup({
 						style = "night",
 						transparent = true,
@@ -93,7 +106,6 @@
 			'';
 		}
 	];
-
 }
 
 # vim:ts=2:
