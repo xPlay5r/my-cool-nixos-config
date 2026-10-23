@@ -53,13 +53,13 @@
 				})
 			'';
 		}
-		{
-			plugin = pkgs.vimPlugins.blink-cmp;
-			type = "lua";
-			config = ''
-				require("blink.cmp").setup()
-			'';
-		}
+		# {
+		# 	plugin = pkgs.vimPlugins.blink-cmp;
+		# 	type = "lua";
+		# 	config = ''
+		# 		require("blink.cmp").setup()
+		# 	'';
+		# }
 		# Snippet engine
 		# https://github.com/L3MON4D3/LuaSnip
 		{

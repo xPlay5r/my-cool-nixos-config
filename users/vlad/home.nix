@@ -12,7 +12,7 @@
 {
 	imports = [
 		../../modules/home/fastfetch.nix
-		../../modules/home/niri-wm-related
+		../../modules/home/niri
 		../../modules/home/wine.nix
 		../../modules/home/nvim
 	];

@@ -7,8 +7,6 @@ bind = vim.keymap.set
 -- Instead of reopening nvim, source config automatically
 -- You could also think about this as restart command, with autosave
 bind("n", "<leader>r", "<CMD>w|:restart<CR>", { desc = "Source config" })
--- Edit nvim config from anywhere
-bind("n", "<C-.>", "<CMD>tabnew ~/.config/nvim/lua/<CR>")
 
 bind("i", "<C-х>", "<C-[>")
 bind({ "i", "c" }, "<C-BS>", "<C-w>")
@@ -29,9 +27,10 @@ bind({"n", "x"}, "<leader>C", "\"+c$")
 
 -- Explorer
 bind("n", "<leader>e", function()
-	require("oil").toggle_float(nil, nil, function()
-		require("oil").open_preview({ preview = { split = "botright" } })
-	end)
+	-- require("oil").toggle_float(nil, nil, function()
+	-- 	require("oil").open_preview({ preview = { split = "botright" } })
+	-- end)
+	vim.cmd.Ntree {}
 end, { desc = "Open parent directory" })
 
 -- Notify history
