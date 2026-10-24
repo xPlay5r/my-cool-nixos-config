@@ -9,6 +9,7 @@
 	imports = [
 		../../modules/nixos/keyd.nix
 		../../modules/nixos/niri.nix
+		../../modules/nixos/disk-management.nix
 		../../modules/nixos/gnome.nix
 		../../modules/nixos/unzip.nix
 		../../modules/nixos/manual.nix
@@ -27,6 +28,11 @@
 
 	nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
 		"steam" "steam-unwrapped" "discord" "discord-unwrapped" "vista-fonts"
+		"ventoy-gtk3"
+	];
+
+	nixpkgs.config.permittedInsecurePackages = [
+		"ventoy-gtk3-1.1.18"
 	];
 }
 
