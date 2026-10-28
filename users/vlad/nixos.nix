@@ -1,13 +1,13 @@
 # nixos configuration
 
 {
-	pkgs,
 	lib,
 	...
 }:
 {
 	imports = [
 		../../modules/nixos/keyd.nix
+		../../modules/nixos/waydroid.nix
 		../../modules/nixos/niri.nix
 		../../modules/nixos/disk-management.nix
 		../../modules/nixos/gnome.nix
