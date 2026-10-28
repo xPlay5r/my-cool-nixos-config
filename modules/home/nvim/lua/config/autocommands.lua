@@ -1,6 +1,7 @@
 -- inspired by https://github.com/if-not-nil/dotfiles/blob/main/.config/nvim/lua/autocommands.lua
 
 local autocmd = vim.api.nvim_create_autocmd
+local vim = vim
 
 -- highlight text on yank
 autocmd("TextYankPost", {
