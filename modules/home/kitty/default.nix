@@ -29,9 +29,9 @@
 			cursor_shape = "beam";
 			cursor_blink_interval = "0.5 ease-in-out";
 			cursor_stop_blinking_after = 0;
-			cursor_trail = 5;
-			cursor_trail_decay = "0.1 0.4";
-			cursor_trail_start_threshold = 10;
+			# cursor_trail = 5;
+			# cursor_trail_decay = "0.1 0.4";
+			# cursor_trail_start_threshold = 15;
 
 			dynamic_background_opacity = true;
 			background_opacity = 0.7;
