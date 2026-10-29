@@ -9,9 +9,13 @@
 
 	environment.systemPackages = with pkgs; [
 		wl-clipboard
+		waydroid-helper
 	];
 
 	# waydroid helper
-	# environment.systemPackages = with pkgs; [waydroid-helper];
+	systemd = {
+		packages = with pkgs; [ waydroid-helper ];
+		services.waydroid-mount.wantedBy = [ "multi-user.target" ];
+	};
 }
 # vim:ts=2:

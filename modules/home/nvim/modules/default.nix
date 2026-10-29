@@ -1,12 +1,9 @@
 {
-	pkgs,
-	...
-}:
-{
 	imports = [
 		# cheatsheets
-		# ./
-		# key cheatsheet or sum TODO
+		./which-key.nix
+		./cursor-smear.nix
+		./neoscroll.nix
 
 		# appearance
 		./lualine.nix
@@ -14,6 +11,7 @@
 		./theme.nix
 
 		# editing
+		./mini-ai.nix
 		./mini-surround.nix
 
 		# lsp

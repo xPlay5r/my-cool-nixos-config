@@ -1,3 +1,7 @@
+-- !ПРЕДПУПРЕЖДЕНИЕ
+-- этот файл сейчас не участвует в конфигурации neovim через nix, и не будет.
+-- Я его оставил, чтобы переносить старый конфиг на nix
+
 -- disable some features in tty
 local is_tty = vim.fn.expand '$TERM' == "linux"
 
