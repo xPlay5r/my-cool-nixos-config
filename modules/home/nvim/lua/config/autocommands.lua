@@ -63,7 +63,11 @@ autocmd({ "FileType" }, {
 autocmd("TermOpen", {
 	pattern = "*",
 	callback = function()
-		vim.cmd("startinsert") -- Сразу переходить в режим вставки/терминала
-		vim.bo.bufhidden = "delete" -- Удалять буфер при закрытии терминала
+		local ft = vim.o.ft
+
+		if ft ~= "kitty-scrollback" then
+			vim.cmd("startinsert") -- Сразу переходить в режим вставки/терминала
+			vim.bo.bufhidden = "delete" -- Удалять буфер при закрытии терминала
+		end
 	end,
 })
