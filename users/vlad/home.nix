@@ -15,6 +15,8 @@
 		../../modules/home/niri
 		../../modules/home/wine.nix
 		../../modules/home/nvim
+		../../modules/home/nvim/modules
+		../../modules/home/kitty
 	];
 
 	home.username = "vlad";
@@ -36,7 +38,6 @@
 	# TODO придумать
 	home.packages = with pkgs; [
 # gui
-kitty
 steam
 # mindustry
 telegram-desktop
