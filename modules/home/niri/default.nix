@@ -11,8 +11,6 @@
 		./mpv.nix
 	];
 
-	xdg.configFile."niri/config.kdl".source =	./config/config.kdl;
-	xdg.configFile."niri/focuse_throne.sh".source = ./config/focuse_throne.sh;
-	xdg.configFile."niri/wallpaper".source = ./config/wallpaper;
+	xdg.configFile."niri".source =	./config;
 }
 # vim:ts=2:

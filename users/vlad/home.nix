@@ -41,7 +41,6 @@
 steam
 # mindustry
 telegram-desktop
-discord
 zathura
 # bristol
 prismlauncher
