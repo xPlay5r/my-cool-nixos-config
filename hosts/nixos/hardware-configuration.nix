@@ -4,57 +4,60 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-  imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
-    ];
+	imports =
+		[ (modulesPath + "/installer/scan/not-detected.nix")
+		];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usb_storage" "sd_mod" ];
-  boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-intel" ];
-  boot.extraModulePackages = [ ];
+	boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usb_storage" "sd_mod" ];
+	boot.initrd.kernelModules = [ ];
+	boot.kernelModules = [ "kvm-intel" ];
+	boot.extraModulePackages = [ ];
 
-  fileSystems."/" =
-    { device = "/dev/mapper/luks";
-      fsType = "btrfs";
-      options = [ "subvol=@" ];
-    };
+	fileSystems."/" =
+		{ device = "/dev/mapper/luks";
+			fsType = "btrfs";
+			options = [ "subvol=@" ];
+		};
 
-  boot.initrd.luks.devices."luks".device = "/dev/disk/by-uuid/9573d22f-49d9-4e14-bca3-1fd790bc12c9";
+	boot.initrd.luks.devices."luks".device = "/dev/disk/by-uuid/9573d22f-49d9-4e14-bca3-1fd790bc12c9";
 
-  fileSystems."/home" =
-    { device = "/dev/mapper/luks";
-      fsType = "btrfs";
-      options = [ "subvol=@home" ];
-    };
+	fileSystems."/home" =
+		{ device = "/dev/mapper/luks";
+			fsType = "btrfs";
+			options = [ "subvol=@home" ];
+		};
 
-  fileSystems."/.snapshots" =
-    { device = "/dev/mapper/luks";
-      fsType = "btrfs";
-      options = [ "subvol=@snapshots" ];
-    };
+	fileSystems."/.snapshots" =
+		{ device = "/dev/mapper/luks";
+			fsType = "btrfs";
+			options = [ "subvol=@snapshots" ];
+		};
 
-  fileSystems."/nix" =
-    { device = "/dev/mapper/luks";
-      fsType = "btrfs";
-      options = [ "subvol=@nix" ];
-    };
+	fileSystems."/nix" =
+		{ device = "/dev/mapper/luks";
+			fsType = "btrfs";
+			options = [ "subvol=@nix" ];
+		};
 
-  fileSystems."/swap" =
-    { device = "/dev/mapper/luks";
-      fsType = "btrfs";
-      options = [ "subvol=@swap" ];
-    };
+	fileSystems."/swap" =
+		{ device = "/dev/mapper/luks";
+			fsType = "btrfs";
+			options = [ "subvol=@swap" ];
+		};
 
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/64B9-FAE7";
-      fsType = "vfat";
-      options = [ "fmask=0022" "dmask=0022" ];
-    };
+	fileSystems."/boot" =
+		{ device = "/dev/disk/by-uuid/64B9-FAE7";
+			fsType = "vfat";
+			options = [ "fmask=0022" "dmask=0022" ];
+		};
 
-  swapDevices =
-    [ { device = "/dev/disk/by-uuid/d7ffb97f-60a1-4366-94ce-050e061aaa82"; }
-    ];
+	swapDevices =
+		[ { device = "/swap/swapfile"; size=16*1024; }
+		];
 
-  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+	zramSwap.enable = true;
+
+	nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+	hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
+# vim:ts=2:
