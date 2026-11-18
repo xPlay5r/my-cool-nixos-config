@@ -38,8 +38,15 @@ autocmd({ "FileType" }, {
 		vim.keymap.set("n", "<C-Space>", "<C-u>zz0", {
 			buffer = true, desc = "Scroll up", nowait=true, remap=true
 		})
-		-- Or you might like <BS> like in info
+		-- Or you might <BS> like in info
 		vim.keymap.set("n", "<BS>", "<C-u>zz0", {
+			buffer = true, desc = "Scroll up", nowait=true, remap=true
+		})
+		-- Also you might like d and u from less manpager
+		vim.keymap.set("n", "d", "<C-d>", {
+			buffer = true, desc = "Scroll down", nowait=true, remap=true
+		})
+		vim.keymap.set("n", "u", "<C-u>", {
 			buffer = true, desc = "Scroll up", nowait=true, remap=true
 		})
 		if vim.fn.has("clipboard") then
