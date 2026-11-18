@@ -11,6 +11,7 @@
 }:
 {
 	imports = [
+		../../modules/home/folders.nix
 		../../modules/home/fastfetch.nix
 		../../modules/home/niri
 		../../modules/home/wine.nix
