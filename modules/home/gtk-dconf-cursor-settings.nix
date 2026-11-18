@@ -38,9 +38,5 @@
 		clock-show-seconds = true;
 		enable-hot-corners = false;
 	};
-
-	dconf.settings."org/nemo/preferences" = {
-		show-hidden-files = true;
-	};
 }
 # vim:ts=2:

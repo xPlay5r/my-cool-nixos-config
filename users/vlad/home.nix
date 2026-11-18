@@ -11,13 +11,31 @@
 }:
 {
 	imports = [
+		# files
 		../../modules/home/folders.nix
-		../../modules/home/fastfetch.nix
+
+		# wm
 		../../modules/home/niri
-		../../modules/home/wine.nix
+		../../modules/home/gtk-dconf-cursor-settings.nix
+		../../modules/home/awww.nix
+		../../modules/home/anyrun.nix
+		../../modules/home/swaync.nix
+		../../modules/home/swaylock+swayidle.nix
+		../../modules/home/niri/waybar-tray-applets.nix
+
+		# gui
+		../../modules/home/kitty
+		../../modules/home/nemo.nix
+		../../modules/home/imv.nix
+		../../modules/home/mpv.nix
+
+		# cli
+		../../modules/home/fastfetch.nix
 		../../modules/home/nvim
 		../../modules/home/nvim/modules
-		../../modules/home/kitty
+
+		# windows
+		../../modules/home/wine.nix
 	];
 
 	home.username = "vlad";
