@@ -43,8 +43,8 @@
 
 		keybindings = {
 			"ctrl+c" = "copy_and_clear_or_interrupt";
-			"ctrl+v" = "paste_from_clipboard";
-			"kitty_mod+v" = "paste";
+			# "ctrl+v" = "paste_from_clipboard";
+			"kitty_mod+v" = "paste_from_clipboard";
 			"ctrl+shift+o" = "copy_last_command_output";
 		};
 	};
