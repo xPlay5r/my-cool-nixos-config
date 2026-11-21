@@ -31,28 +31,24 @@ autocmd({ "FileType" }, {
 	pattern = "help,qf,netrw,man,mininotify-history",
 	callback = function()
 		vim.keymap.set("n", "q", "<C-w>q", { buffer = true, desc = "Quit window" })
-		vim.keymap.set("n", "<Space>", "<C-d>zz0", {
-			buffer = true, desc = "Scroll down", nowait=true, remap=true
-		})
-		-- Js bc s-space doesnt work, im forced to other mappings
-		vim.keymap.set("n", "<C-Space>", "<C-u>zz0", {
-			buffer = true, desc = "Scroll up", nowait=true, remap=true
-		})
-		-- Or you might <BS> like in info
-		vim.keymap.set("n", "<BS>", "<C-u>zz0", {
-			buffer = true, desc = "Scroll up", nowait=true, remap=true
-		})
-		-- Also you might like d and u from less manpager
-		vim.keymap.set("n", "d", "<C-d>", {
-			buffer = true, desc = "Scroll down", nowait=true, remap=true
-		})
-		vim.keymap.set("n", "u", "<C-u>", {
-			buffer = true, desc = "Scroll up", nowait=true, remap=true
-		})
 		if vim.fn.has("clipboard") then
 			vim.keymap.set({ "n", "x" }, "y", "\"+y", { buffer = true, desc = "Yank" })
 			vim.keymap.set({ "n", "x" }, "Y", "\"+y$", { buffer = true, desc = "Yank" })
 		end
+
+		-- Scrolling
+		-- <BS> from info(1)
+		vim.keymap.set("n", "<BS>", "<C-u>zz0", {
+			buffer = true, desc = "Scroll up", nowait=true, remap=true
+		})
+		-- d from less(1)
+		vim.keymap.set("n", "d", "<C-d>", {
+			buffer = true, desc = "Scroll down", nowait=true, remap=true
+		})
+		-- u from less(1)
+		vim.keymap.set("n", "u", "<C-u>", {
+			buffer = true, desc = "Scroll up", nowait=true, remap=true
+		})
 	end,
 })
 

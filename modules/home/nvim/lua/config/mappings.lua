@@ -1,8 +1,10 @@
 -- :%s/^map/vim.keymap.set
 -- :help vim.keymap.set()
+
+local vim = vim -- for poor lsp
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
-bind = vim.keymap.set
+local bind = vim.keymap.set
 
 -- Instead of reopening nvim, source config automatically
 -- You could also think about this as restart command, with autosave
@@ -54,13 +56,16 @@ bind("n", "gcO", "Ox<esc><cmd>normal gcc<cr>fxa<bs>", { desc = "Add Comment Abov
 bind("n", "n", "nzz")
 bind("n", "N", "Nzz")
 
--- Scroll down and up, convenient in man pages
-bind("n", "\\", "0<C-D>zz", { desc = "Scroll down" })
-bind("n", "|", "0<C-U>zz", { desc = "Scroll up" })
-bind("n", "<BS>", "0<C-U>zz", { desc = "Scroll up" })
+-- <C-d> will literally scroll and not move cursor
+-- <C-e> is interpreted correctly because of replace_keycodes flag
+-- See `:h vim.keymap.set`, more specifically `:h nvim_set_keymap()` opts
+bind("n", "<C-d>", function()
+	return "0" .. vim.opt.scroll._value .. "<C-e>"
+end, { expr = true, replace_keycodes = true })
 
-bind("n", "<C-D>", "<C-D>zz0", { desc = "Scroll down" })
-bind("n", "<C-U>", "<C-U>zz0", { desc = "Scroll up" })
+bind("n", "<C-u>", function()
+	return "0" .. vim.opt.scroll._value .. "<C-y>"
+end, { expr = true, replace_keycodes = true })
 
 -- Scroll second window within insert mode
 bind("i", "<C-f>", "<ESC><C-w><C-w>0<C-d>zz<C-w><C-w>gi" )
