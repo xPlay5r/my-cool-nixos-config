@@ -150,7 +150,7 @@ output "HDMI-A-1" {
 // https://yalter.github.io/niri/Configuration:-Layout
 layout {
     // Set gaps around windows in logical pixels.
-    gaps 4
+    gaps 8
     // gaps 0
 
     // When to center a column when changing focus, options are:
@@ -316,7 +316,7 @@ layout {
 blur {
     // off
     passes 2
-    offset 5
+    offset 3
     noise 0.02
     saturation 1.5
 }
@@ -383,7 +383,7 @@ hotkey-overlay {
 // Additionally, clients will be informed that they are tiled, removing some client-side rounded corners.
 // This option will also fix border/focus ring drawing behind some semitransparent windows.
 // After enabling or disabling this, you need to restart the apps for this to take effect.
-prefer-no-csd
+// prefer-no-csd
 
 // You can change the path where screenshots are saved.
 // A ~ at the front will be expanded to the home directory.
@@ -521,7 +521,7 @@ window-rule {
 // Example: enable rounded corners for all windows.
 // (This example rule is commented out with a "/-" in front.)
 window-rule {
-    geometry-corner-radius 6
+    geometry-corner-radius 10
     // geometry-corner-radius 0
     clip-to-geometry true
     draw-border-with-background false

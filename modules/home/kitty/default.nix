@@ -34,9 +34,11 @@
 			# cursor_trail_start_threshold = 30;
 
 			dynamic_background_opacity = true;
-			background_opacity = 0.7;
+			background_opacity = 0.8;
 
 			cursor = "#66ff77";
+
+			hide_window_decorations = true;
 		};
 
 		shellIntegration.mode = null;
