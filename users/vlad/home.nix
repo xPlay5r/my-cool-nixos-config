@@ -46,7 +46,7 @@
 		package = pkgs.gitFull;
 		settings = {
 			user.name = "xPlay5r";
-			credential.helper = "storage";
+			credential.helper = "store";
 		};
 	};
 
