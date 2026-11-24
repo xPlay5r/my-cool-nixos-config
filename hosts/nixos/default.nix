@@ -3,7 +3,7 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 # https://discourse.nixos.org/t/how-do-specialargs-work/50615/4
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 
 {
 	nix.settings.experimental-features = [ "nix-command" "flakes" ];
