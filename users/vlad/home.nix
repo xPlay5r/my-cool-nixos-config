@@ -30,6 +30,7 @@
 		../../modules/home/mpv.nix
 
 		# cli
+		../../modules/home/bash.nix
 		../../modules/home/fastfetch.nix
 		../../modules/home/nvim
 		../../modules/home/nvim/modules
@@ -79,14 +80,6 @@ gnome-tweaks
 wl-clipboard brightnessctl
 playerctl
 wl-gammactl wooz
-
-# cli/tui утилиты
-python3
-translate-shell
-ddgr
-lsd bat htop btop
-jq
-groff
 
 # надо
 # amnezia-vpn
