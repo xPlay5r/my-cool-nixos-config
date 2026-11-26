@@ -24,6 +24,9 @@
 			url = "github:nix-community/home-manager";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
+
+		# https://discourse.nixos.org/t/how-to-include-other-peoples-flakes-in-your-config/34295/2
+		typy.url = "github:Pazl27/typy-cli";
 	};
 
 	outputs = inputs @ {
@@ -58,8 +61,8 @@
 							home-manager.useGlobalPkgs = true;
 							home-manager.useUserPackages = true;
 
-							home-manager.extraSpecialArgs = inputs // specialArgs;
-							home-manager.users.${user} = import ./users/${user}/home.nix;
+							home-manager.extraSpecialArgs = { inherit inputs; } // specialArgs;
+							home-manager.users.${user}.imports = [ ./users/${user}/home.nix ];
 						}
 					];
 				};

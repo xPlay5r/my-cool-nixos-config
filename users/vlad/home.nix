@@ -12,31 +12,32 @@
 {
 	imports = [
 		# files
-		../../modules/home/folders.nix
+		../../modules/home/folders
 
 		# wm
 		../../modules/home/niri
-		../../modules/home/gtk-dconf-cursor-settings.nix
-		../../modules/home/awww.nix
-		../../modules/home/anyrun.nix
-		../../modules/home/swaync.nix
-		../../modules/home/swaylock+swayidle.nix
+		../../modules/home/gtk-dconf-cursor-settings
+		../../modules/home/awww
+		../../modules/home/anyrun
+		../../modules/home/swaync
+		../../modules/home/swaylock+swayidle
 		../../modules/home/niri/waybar-tray-applets.nix
 
 		# gui
 		../../modules/home/kitty
-		../../modules/home/nemo.nix
-		../../modules/home/imv.nix
-		../../modules/home/mpv.nix
+		../../modules/home/nemo
+		../../modules/home/imv
+		../../modules/home/mpv
 
 		# cli
-		../../modules/home/bash.nix
-		../../modules/home/fastfetch.nix
+		../../modules/home/bash
+		../../modules/home/fastfetch
 		../../modules/home/nvim
 		../../modules/home/nvim/modules
+		../../modules/home/monkeytype
 
 		# windows
-		../../modules/home/wine.nix
+		../../modules/home/wine
 	];
 
 	home.username = "vlad";
