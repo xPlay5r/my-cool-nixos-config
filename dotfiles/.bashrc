@@ -6,6 +6,7 @@
 
 export EDITOR=nvim
 export MANPAGER='nvim +Man!'
+HISTTIMEFORMAT='%F %T '
 
 alias h=history
 alias ls='lsd --color auto --hyperlink auto -A'
@@ -28,3 +29,12 @@ function mkcd {
 function mkcdp {
 	mkdir -p "$1" && cd "$1"
 }
+
+# Yes to <CR> (still splits single commands)
+shopt -s cmdhist lithist
+shopt -s histappend
+
+# https://github.com/starship/starship/blob/main/docs/ru-RU/guide/README.md
+eval "$(starship init bash)"
+
+# vim:ts=4:

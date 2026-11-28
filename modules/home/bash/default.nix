@@ -12,6 +12,7 @@ in {
 
 	# cli/tui
 	home.packages = with pkgs; [
+		starship
 		python3
 		translate-shell
 		ddgr

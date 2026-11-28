@@ -15,5 +15,7 @@ set skip-completed-text on
 C-p: history-search-backward
 C-n: history-search-forward
 
+"\e\r": "\C-v\C-j"
+
 # TAB: menu-complete
 # S-TAB: menu-complete-backward
