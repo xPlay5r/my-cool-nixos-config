@@ -1,10 +1,12 @@
 {
 	config,
 	...
-}:
-{
+}: let
+	ln = path:
+		config.lib.file.mkOutOfStoreSymlink ("${config.home.homeDirectory}/nix/dotfiles/" + path);
+in {
 	xdg.configFile."niri" = {
-		source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nix/modules/home/niri/config";
+		source = ln "niri";
 		recursive = true;
 	};
 }
