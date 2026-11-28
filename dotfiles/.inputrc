@@ -16,6 +16,7 @@ C-p: history-search-backward
 C-n: history-search-forward
 
 "\e\r": "\C-v\C-j"
+"\ed": kill-region
 
 # TAB: menu-complete
 # S-TAB: menu-complete-backward
