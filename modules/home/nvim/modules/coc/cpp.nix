@@ -7,10 +7,8 @@
 		clang-tools
 	];
 
-	programs.neovim = {
-		coc.enable = true;
-
-		coc.settings = {
+	programs.neovim.coc = {
+		settings = {
 			languageserver = {
 				clangd = {
 					command = "${pkgs.clang-tools}/bin/clangd";
@@ -20,7 +18,7 @@
 			};
 		};
 
-		coc.pluginConfig = ''
+		pluginConfig = ''
 			let g:coc_global_extensions = ['coc-clangd']
 		'';
 	};

@@ -3,11 +3,9 @@
 		# cheatsheets
 		./which-key.nix
 		./cursor-smear.nix
-		./neoscroll.nix
 
 		# appearance
 		./lualine.nix
-		./indent-line.nix
 		./theme.nix
 
 		# editing
@@ -15,9 +13,7 @@
 		./mini-surround.nix
 
 		# lsp
-		./cpp.nix
-		./nix.nix
-		./lua.nix
+		./coc
 	];
 
 	# base config
