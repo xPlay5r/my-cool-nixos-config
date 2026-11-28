@@ -1,4 +1,8 @@
 -- :help options
+
+-- for reducing lsp warnings
+local vim = vim
+
 vim.o.autochdir = true
 vim.o.belloff = ""
 vim.o.errorbells = true
@@ -10,7 +14,7 @@ vim.o.langmap = "йцукенгшщзхъфывапролджэячсмитьб�
 
 vim.o.number = true
 vim.o.cursorline = true
-vim.o.relativenumber = true
+-- vim.o.relativenumber = true
 vim.o.scrolloff = 10
 
 vim.opt.undofile = true

@@ -1,4 +1,4 @@
-theme = "Tokyo Night"
+theme = "Tokyo Night with white text"
 cursor = "blinking bar"
 content = "words"
 code_language = "any"
@@ -11,5 +11,6 @@ default_mode = "normal"
 
 [game]
 time = 60
+
 # For more information about the configuration check:
 # https://github.com/Pazl27/typy-cli?tab=readme-ov-file#configuration
